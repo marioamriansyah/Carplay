@@ -18,91 +18,87 @@
             <div class="rounded"></div>
         </div>
 
-        <!-- APPS -->
-        <div id="iframe-container" class="iframe-container">
-
-            <div class="indicators-iframe">
-                <span class="close close-iframe"></span>
-                <span class="minimize close-iframe"></span>
-                <span class="fullscreen close-iframe"></span>
-            </div>
-            <div class="navigate-iframe">
-                <button id="backBtn" class="navigate-iframe-back">
-                    <ion-icon name="chevron-back-outline"></ion-icon>
-                </button>
-                <button id="forwardBtn" class="navigate-iframe-forward">
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-            </div>
-            <iframe id="website-iframe" src="" class="website-iframe"></iframe>
-        </div>
 
         <div class="nav">
-            <div class="left"></div>
-            <div class="right">
-                <ion-icon name="cellular"></ion-icon>
-                <ion-icon name="wifi"></ion-icon>
-                <ion-icon name="battery-half"></ion-icon>
-            </div>
         </div>
 
         <div class="app-container">
+
             <div class="bg-img">
-                <div class="bg-frame">
-                </div>
+                <div class="bg-frame"></div>
             </div>
-            <div class="lock-screen active">
-                <div id="time1" class="time">
-                    <h1>9:45</h1>
-                    <span id="date">Saturday, October 29</span>
-                </div>
-                <div class="screen-lock-nav">
-                    <div class="left">
-                        <button class>
-                            <ion-icon name="flashlight"></ion-icon>
-                        </button>
+            <div class="application-menu active">
+                <div class="bottom-navigation">
+                    <div id="time2" class="time-nav">
+                        <span>9:45</span>
                     </div>
+
                     <div class="right">
-                        <button class>
-                            <ion-icon name="camera"></ion-icon>
-                        </button>
+                        <ion-icon name="cellular"></ion-icon>
+                        <ion-icon name="wifi"></ion-icon>
                     </div>
+
+                    <div class="bottom-navigation-apps">
+                        <div class="button-app phone-log">
+                            <ion-icon name="call"></ion-icon>
+                        </div>
+
+                        <div id="openSpotify" class="button-app spotify">
+                            <img class="icon-img" src="./assets/img/icon spotify.png" alt="">
+                        </div>
+
+                        <div class="button-app messages">
+                            <ion-icon name="chatbubble"></ion-icon>
+                        </div>
+
+                        <div id="openSetting" class="button-app setting">
+                            <img class="icon-img" src="./assets/img/icon setting.png" alt="">
+                        </div>
+                    </div>
+                    <div class="button"></div>
                 </div>
-                <div class="open-button">
-                    Click to unlock
+
+                <!-- APPS -->
+                <div id="iframe-container" class="iframe-container">
+                    <iframe id="website-iframe" src="" class="website-iframe"></iframe>
                 </div>
             </div>
 
-
-            <div class="application-menu">
-                <div class="applications">
-                    <div id="slide_1" class="slide-1">
+            <div class="application-menu active">
+                < <div class="applications">
+                    <div id="slide_1" class="slide-1 active">
 
 
                         <div class="icon-sect">
 
                             <div class="icon">
-                                <button class="facetime message">
-                                    <ion-icon name="videocam"></ion-icon>
+                                <button id="openVibebook" class="vibebook-app">
+                                    <img class="icon-img" src="./assets/img/vibebook.jpg" alt="">
                                 </button>
-                                <label>FaceTime</label>
+                                <label>Vibebook</label>
                             </div>
 
                             <div class="icon">
-                                <button class="camera message">
-                                    <ion-icon name="camera"></ion-icon>
+                                <button id="openSafari" class="safari-app">
+                                    <img class="icon-img"
+                                        src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Safari-512.png"
+                                        alt="">
                                 </button>
-                                <label>Camera</label>
+                                <label>Safari</label>
                             </div>
 
                             <div class="icon">
-                                <button class="bi-envelope-fill mail"></button>
-                                <label>Mail</label>
+                                <button id="openRadio" class="radio-app">
+                                    <img class="icon-img" src="https://i.ibb.co/cvns86j/Radio.png" alt="">
+                                </button>
+                                <label>Radio</label>
                             </div>
 
                             <div class="icon">
-                                <button id="openBooks" class="bi-book-fill ibook"></button>
-                                <label>Books</label>
+                                <button id="openApplemusic" class="apple-music">
+                                    <ion-icon name="musical-notes"></ion-icon>
+                                </button>
+                                <label>Music</label>
                             </div>
 
                         </div>
@@ -243,39 +239,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="indicators">
-                    <span onclick="left()" class="active-screen span1"></span>
-                    <span onclick="right()" class="span2"></span>
-                </div>
-
-                <div id="time2" class="time-nav">
-                    <span>9:45</span>
-                </div>
-                <div class="bottom-navigation">
-
-                    <div class="button-app phone-log">
-                        <ion-icon name="call"></ion-icon>
-                    </div>
-
-                    <div id="openSpotify" class="button-app spotify">
-                        <img class="icon-img" src="./assets/img/icon spotify.png" alt="">
-                    </div>   
-
-                    <div class="button-app messages">
-                        <ion-icon name="chatbubble"></ion-icon>
-                    </div>
-
-                    <div id="openSetting" class="button-app setting">
-                        <img class="icon-img" src="./assets/img/icon setting.png" alt="">
-                    </div>   
-                </div>
             </div>
+
+            <div class="indicators">
+                <span onclick="left()" class="active-screen span1"></span>
+                <span onclick="right()" class="span2"></span>
+            </div>
+
+
         </div>
+    </div>
 
-
-        <div class="button"></div>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
