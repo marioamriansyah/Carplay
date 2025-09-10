@@ -167,62 +167,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // tombol buka, misal tombol dengan id "openVibebook"
     document.getElementById('openVibebook').addEventListener('click', () => {
-        iframe.src = 'https://vb.lossantos.cloud/';
-        container.style.display = 'block';
+        openIframe('https://vb.lossantos.cloud/');
         iframe.style.zoom = '60%';
     });
 
-
-    // tombol buka, misal tombol dengan id "openWeather"
-    document.getElementById('openWeather').addEventListener('click', () => {
-        iframe.src = 'https://www.ventusky.com/los-angeles';
-        container.style.display = 'block';
+    // tombol buka, misal tombol dengan id "openTV"
+    document.getElementById('openTV').addEventListener('click', () => {
+        openIframe('https://moviebypass.pro/');
+        iframe.style.zoom = '60%';
     });
 
     // tombol buka, misal tombol dengan id "openCalculator"
     document.getElementById('openCalculator').addEventListener('click', () => {
-        iframe.src = 'https://frabjous-marigold-abe186.netlify.app/';
-        container.style.display = 'block';
+        openIframe('https://frabjous-marigold-abe186.netlify.app/');
         iframe.style.zoom = '80%';
     });
 
     // tombol buka, misal tombol dengan id "openRadio"
     document.getElementById('openRadio').addEventListener('click', () => {
-        iframe.src = 'https://powerhitz.com/1Power';
-        container.style.display = 'block';
+        openIframe('https://powerhitz.com/1Power');
         iframe.style.zoom = '50%';
     });
 
     // tombol buka, misal tombol dengan id "openSafari"
     document.getElementById('openSafari').addEventListener('click', () => {
-        iframe.src = 'https://yandex.com/';
-        container.style.display = 'block';
+        openIframe('https://yandex.com/');
     });
 
-    // tombol buka, misal tombol dengan id "openNetflix"
-    document.getElementById('openNetflix').addEventListener('click', () => {
-        iframe.src = 'https://www.netflix.com/id-en/';
-        container.style.display = 'block';
-    });
-
-    // tombol buka, misal tombol dengan id "openSpotify"
-    document.getElementById('openSpotify').addEventListener('click', () => {
-        iframe.src = 'https://open.spotify.com/';
-        container.style.display = 'block';
+    // tombol buka, misal tombol dengan id "openApplemusic"
+    document.getElementById('openApplemusic').addEventListener('click', () => {
+        openIframe('https://music.youtube.com/');
     });
 
     // tombol buka, misal tombol dengan class "dinoGame"
     document.querySelector('.dinoGame').addEventListener('click', () => {
-        iframe.src = 'https://precious-cassata-fda6b3.netlify.app/';
-        container.style.display = 'block';
+        openIframe('https://precious-cassata-fda6b3.netlify.app/');
     });
 
-    // tombol buka, misal tombol dengan id "openTetris"
-    document.getElementById('openTetris').addEventListener('click', () => {
-        iframe.src = 'https://heartfelt-bonbon-96a03c.netlify.app/';
-        container.style.display = 'block';
-        iframe.style.zoom = '70%';
-    });
 
 });
 
@@ -238,13 +219,62 @@ function updateTime() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const dateString = now.toLocaleDateString('en-US', options);
 
-    // Update elemen pertama
-    document.querySelector('#time1 h1').textContent = timeString;
-    document.querySelector('#time1 span').textContent = dateString;
+    // Update elemen pertama (jika ada)
+    const time1 = document.querySelector('#time1 h1');
+    const date1 = document.querySelector('#time1 span');
+    if (time1) time1.textContent = timeString;
+    if (date1) date1.textContent = dateString;
 
-    // Update elemen kedua
-    document.querySelector('#time2 span').textContent = timeString;
+    // Update elemen kedua (jika ada)
+    const time2 = document.querySelector('#time2 span');
+    if (time2) time2.textContent = timeString;
 }
 
-setInterval(updateTime, 1000);
+// Jalankan langsung sekali saat load
 updateTime();
+
+// Update setiap 1 detik
+setInterval(updateTime, 1000);
+
+
+//Loading spinner
+const container = document.getElementById("iframe-container");
+const iframe = document.getElementById("website-iframe");
+const loader = document.getElementById("iframe-loader");
+
+// ✅ fungsi buka iframe
+function openIframe(url) {
+    container.style.display = "block";
+    loader.style.display = "flex";          // tampilkan spinner SETIAP kali buka
+    iframe.setAttribute("src", url);
+    // reset posisi iframe sebelum dipakai lagi
+    iframe.style.margin = "0";
+    iframe.style.padding = "0";
+    iframe.style.transform = "none";
+    iframe.style.top = "0";
+    iframe.style.left = "0";
+    iframe.style.zoom = "100%";    // default zoom biar tidak geser
+    iframe.scrollTop = 0;          // reset scroll
+    iframe.scrollLeft = 0;
+
+    // tampilkan container
+    container.style.display = "block";
+    loader.style.display = "flex";   // tampilkan spinner SETIAP kali buka
+
+    // load url baru
+    iframe.setAttribute("src", url);        // load url baru
+}
+
+// ✅ fungsi tutup iframe
+function closeIframe() {
+    const container = document.getElementById("iframe-container");
+    const iframe = document.getElementById("website-iframe");
+
+    iframe.src = ""; // reset src
+    container.style.display = "none"; // sembunyikan container
+}
+
+// ✅ saat iframe selesai load
+iframe.addEventListener("load", () => {
+    loader.style.display = "none";          // sembunyikan spinner
+});

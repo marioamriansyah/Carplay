@@ -187,7 +187,7 @@ body {
 
 .right {
     position: absolute;
-    top: 40px;
+    top: 33px;
     gap: 0.2em;
     width: fit-content;
     z-index: 90;
@@ -281,7 +281,7 @@ body {
     justify-content: space-around;
     transform: translateY(-50%);
     box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
-        inset -1px -1px 1px 1px rgba(255, 255, 255, 0.616);
+        inset -1px -1px 1px 0px rgba(255, 255, 255, 0.616);
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.322);
     backdrop-filter: blur(4px);
@@ -327,7 +327,7 @@ body {
     position: absolute;
     width: 15px;
     height: 15px;
-    bottom: 20px;
+    bottom: 15px;
     border-radius: 6px;
     z-index: 102;
     background-color: rgba(61, 61, 61, 0.247);
@@ -576,6 +576,9 @@ body {
     background-image: linear-gradient(#202020, #000000);
 }
 
+
+
+
 #iframe-container {
     position: absolute;
     display: none;
@@ -587,7 +590,12 @@ body {
     align-items: center;
     justify-content: space-around;
     transform: translateY(-50%);
-    background: white;
+    box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
+        inset -1px -1px 1px 0px rgba(255, 255, 255, 0.616);
+    background: rgba(255, 255, 255, 0.322);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+    backdrop-filter: blur(4px);
+    color: rgba(255, 255, 255, 0.8);
     overflow: hidden;
     z-index: 4;
     border-radius: 24px;
@@ -597,6 +605,49 @@ body {
     width: 100%;
     height: 100%;
     border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+#website-iframe::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Loader wrapper */
+#iframe-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
+        inset -1px -1px 1px 0px rgba(255, 255, 255, 0.616);
+    background: rgba(255, 255, 255, 0.322);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+    backdrop-filter: blur(4px);
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+}
+
+/* Spinner */
+.spinner {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid black;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* .indicators-iframe {
@@ -675,7 +726,7 @@ body {
 
 .time-nav {
     position: absolute;
-    top: 18px;
+    top: 17px;
     height: fit-content;
     align-items: center;
     z-index: 90;
@@ -685,5 +736,6 @@ body {
 
 .time-nav span {
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 700;
 }

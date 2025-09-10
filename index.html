@@ -33,7 +33,7 @@
                     <img class="icon-img-nav" src="./assets/img/Phone-Icon-Default.png" alt="">
                 </div>
 
-                <div class="button-app apple-music">
+                <div id="openApplemusic" class="button-app apple-music">
                     <img class="icon-img-nav" src="./assets/img/Music-Icon-Default.png" alt="">
                 </div>
 
@@ -55,9 +55,16 @@
 
 
             <!-- APPS -->
-            <div id="iframe-container" class="iframe-container">
+            <div id="iframe-container" style="display:none;">
+                <!-- Spinner -->
+                <div id="iframe-loader" class="iframe-loader">
+                    <div class="spinner"></div>
+                </div>
+
+                <!-- Iframe -->
                 <iframe id="website-iframe" src="" class="website-iframe"></iframe>
             </div>
+
         </div>
 
         <div class="application-menu">
@@ -99,10 +106,10 @@
                     <div class="icon-sect">
 
                         <div class="icon">
-                            <button id="openWeather" class="weather-app">
-                                <img class="icon-img" src="./assets/img/Weather-Icon-Default.png" alt="">
+                            <button id="openTV" class="weather-app">
+                                <img class="icon-img" src="./assets/img/TV-Icon-Default.png" alt="">
                             </button>
-                            <label>Weather</label>
+                            <label>TV</label>
                         </div>
 
                         <div class="icon">
@@ -114,64 +121,18 @@
 
                         <div class="icon">
                             <button id="openCalculator" class="appstore">
-                                <img class="icon-img"
-                                    src="./assets/img/Calculator-Icon-Default.png" alt="">
+                                <img class="icon-img" src="./assets/img/Calculator-Icon-Default.png" alt="">
                             </button>
                             <label>Calculator</label>
                         </div>
 
                         <div class="icon">
                             <button id="dinoGame" class="phone-log">
-                                <img class="icon-img"
-                                    src="./assets/img/Games-Default@2x.png" alt="">
+                                <img class="icon-img" src="./assets/img/Games-Default@2x.png" alt="">
                             </button>
                             <label>Phone</label>
                         </div>
-
                     </div>
-
-                    <!-- <div id="slide_2" class="slide-1">
-                    <div class="icon-sect">
-
-                        <div class="icon">
-                            <button class="dinoGame">
-                                <img class="icon-img" id="openDinogame"
-                                    src="https://play-lh.googleusercontent.com/iiIJq5JmLFYNI1bVz4IBHyoXs508JcEzHhOgau69bnveF9Wat51-ax9LMPVOlneKwqg=w240-h480-rw"
-                                    alt="">
-                            </button>
-                            <label>Dino T-Rex</label>
-                        </div>
-
-                        <div class="icon">
-                            <button class="tetrisGame" id="openTetris">
-                                <img class="icon-img"
-                                    src="https://play-lh.googleusercontent.com/8ymJqFFYEC3-O1TJT6lb8I9M3LSDU5h1oEjexuMlJ5tpvTqV8sEzx4KHwDn6uKw0MNI"
-                                    alt="">
-                            </button>
-                            <label>Tetris</label>
-                        </div>
-
-                        <div class="icon">
-                            <button class="twitter-app bi-twitter">
-                            </button>
-                            <label>Twitter</label>
-                        </div>
-
-                        <div class="icon">
-                            <button class="bi-pinterest pinterest-app">
-                            </button>
-                            <label>Pinterest</label>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-                    <!-- <div class="indicators">
-                <span onclick="left()" class="active-screen span1"></span>
-                <span onclick="right()" class="span2"></span>
-            </div> -->
-
-
                 </div>
             </div>
         </div>
