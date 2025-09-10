@@ -18,17 +18,17 @@ if (openMenu) {
     console.error('open-button element not found!');
 }
 
-function OpenAppScreen() {
-    const lockScreen = document.querySelector('.lock-screen');
-    const appMenu = document.querySelector('.application-menu');
+// function OpenAppScreen() {
+//     const lockScreen = document.querySelector('.lock-screen');
+//     const appMenu = document.querySelector('.application-menu');
     
-    if (lockScreen && appMenu) {
-        lockScreen.classList.replace('active', 'animate-lock-screen');
-        appMenu.classList.add('active');
-    } else {
-        console.error('Lock screen or application menu not found!');
-    }
-}
+//     if (lockScreen && appMenu) {
+//         lockScreen.classList.replace('active', 'animate-lock-screen');
+//         appMenu.classList.add('active');
+//     } else {
+//         console.error('Lock screen or application menu not found!');
+//     }
+// }
 
 const closeMenu = document.querySelector('.button');
 if (closeMenu) {
@@ -117,51 +117,34 @@ function forceCloseAllIframes() {
     }
 }
 
-function slideLeft() {
-    document.querySelector('.applications').classList.remove('active-slide');
-    document.querySelector('.span1').classList.add('active-screen');
-    document.querySelector('.span2').classList.remove('active-screen');
-}
+// function slideLeft() {
+//     document.querySelector('.applications').classList.remove('active-slide');
+//     document.querySelector('.span1').classList.add('active-screen');
+//     document.querySelector('.span2').classList.remove('active-screen');
+// }
 
-function slideRight() {
-    document.querySelector('.applications').classList.add('active-slide');
-    document.querySelector('.span1').classList.remove('active-screen');
-    document.querySelector('.span2').classList.add('active-screen');
-}
+// function slideRight() {
+//     document.querySelector('.applications').classList.add('active-slide');
+//     document.querySelector('.span1').classList.remove('active-screen');
+//     document.querySelector('.span2').classList.add('active-screen');
+// }
 
-window.addEventListener('wheel', (e) => {
-    if (e.deltaY > 0) {
-        slideRight();  // geser ke kanan saat scroll down
-    } else if (e.deltaY < 0) {
-        slideLeft();   // geser ke kiri saat scroll up
-    }
-});
+// window.addEventListener('wheel', (e) => {
+//     if (e.deltaY > 0) {
+//         slideRight();  // geser ke kanan saat scroll down
+//     } else if (e.deltaY < 0) {
+//         slideLeft();   // geser ke kiri saat scroll up
+//     }
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('iframe-container');
     const iframe = document.getElementById('website-iframe');
-    const backBtn = document.getElementById('backBtn');
-    const forwardBtn = document.getElementById('forwardBtn');
     
     console.log('DOM loaded - checking elements:');
     console.log('container:', container);
     console.log('iframe:', iframe);
-    console.log('backBtn:', backBtn);
-    console.log('forwardBtn:', forwardBtn);
-
-    if (backBtn) {
-        backBtn.addEventListener('click', () => {
-            iframe.contentWindow.history.back();
-        });
-    }
-
-    if (forwardBtn) {
-        forwardBtn.addEventListener('click', () => {
-            iframe.contentWindow.history.forward();
-        });
-    }
-
 
     // Function to hide unnecessary elements when iframe opens (keep indicators and applications visible)
     function hideElementsWhenIframeOpen() {
@@ -185,50 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Elements shown again:', elementsToShow.length);
     }
 
-    // tombol buka, misal tombol dengan id "openVibebook"
-    const openVibebook = document.getElementById('openVibebook');
-    console.log('openVibebook element:', openVibebook);
-    if (openVibebook) {
-        openVibebook.addEventListener('click', () => {
-            console.log('Vibebook button clicked!');
-            iframe.src = 'https://vb.lossantos.cloud/';
-            container.style.display = 'block';
-            iframe.style.zoom = '50%';
-            hideElementsWhenIframeOpen(); // Hide unnecessary elements
-            console.log('Iframe opened with src:', iframe.src);
-        });
-    } else {
-        console.error('openVibebook element not found!');
-    }
-
-    // tombol buka, misal tombol dengan id "openYoutube"
-    const openYoutube = document.getElementById('openYoutube');
-    console.log('openYoutube element:', openYoutube);
-    if (openYoutube) {
-        openYoutube.addEventListener('click', () => {
-            console.log('Youtube button clicked!');
-            iframe.src = 'https://youtube.com/';
-            container.style.display = 'block';
-            hideElementsWhenIframeOpen(); // Hide unnecessary elements
-            console.log('Iframe opened with src:', iframe.src);
-        });
-    } else {
-        console.error('openYoutube element not found!');
-    }
-
-    // tombol buka, misal tombol dengan id "openApplemusic"
-    const openApplemusic = document.getElementById('openApplemusic');
-    console.log('openApplemusic element:', openApplemusic);
-    if (openApplemusic) {
-        openApplemusic.addEventListener('click', () => {
-            console.log('Apple Music button clicked!');
-            iframe.src = 'https://music.apple.com/';
-            container.style.display = 'block';
-            console.log('Iframe opened with src:', iframe.src);
-        });
-    } else {
-        console.error('openApplemusic element not found!');
-    }
 
     // tombol buka, misal tombol dengan id "openWeather"
     document.getElementById('openWeather').addEventListener('click', () => {
