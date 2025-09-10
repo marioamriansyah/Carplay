@@ -26,7 +26,7 @@ body {
 
 .iphone-frame {
     background-color: #fff;
-    height: 300px;
+    height: 250px;
     position: relative;
     overflow: hidden;
     width: 700px;
@@ -190,15 +190,15 @@ body {
     top: 40px;
     gap: 0.2em;
     width: fit-content;
-    height: 30px;
     z-index: 90;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .right ion-icon {
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /* .active {
@@ -274,14 +274,14 @@ body {
     flex-direction: column;
     left: 6px;
     top: 50%;
-    width: 50px;
-    height: 260px;
+    width: 40px;
+    height: 210px;
     padding: 0.5em;
     align-items: center;
     justify-content: space-around;
     transform: translateY(-50%);
     box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.616);
+        inset -1px -1px 1px 1px rgba(255, 255, 255, 0.616);
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.322);
     backdrop-filter: blur(4px);
@@ -299,15 +299,11 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: -1px;
-    gap: 0.5em;
-    top: 50%;
+    gap: 0.2em;
     width: 50px;
     height: fit-content;
-    padding: 0.5em;
     align-items: center;
     justify-content: space-around;
-    transform: translateY(-50%);
     transform-origin: center;
 }
 
@@ -317,26 +313,25 @@ body {
 } */
 
 .bottom-navigation .button-app {
-    line-height: 48px;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 20px;
     transform: scale(6px);
 }
 
 .button {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     bottom: 20px;
-    border-radius: 7px;
+    border-radius: 6px;
     z-index: 102;
     background-color: rgba(61, 61, 61, 0.247);
-    border: 2.7px solid #ffffffd8;
+    border: 2px solid #ffffffd8;
     cursor: pointer;
 }
 
@@ -370,12 +365,15 @@ body {
 
 .slide-1 {
     position: absolute;
-    top: 50px;
-    left: 510;
+    left: 125px;
+    top: 50%;
     width: 70%;
-    transition: .7s;
-    left: 55%;
-    transform: translateX(-50%);
+    height: fit-content;
+    padding: 0.5em;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateY(-50%);
+    transform-origin: center;
 }
 
 #slide_2 {
@@ -488,8 +486,8 @@ body {
 } */
 
 .icon-img-nav {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
     font-size: 25px;
     transition: .8s;
@@ -582,10 +580,10 @@ body {
     position: absolute;
     display: none;
     flex-direction: column;
-    left: 78px;
+    left: 68px;
     top: 50%;
-    width: 587px;
-    height: 260px;
+    width: 612px;
+    height: 225px;
     align-items: center;
     justify-content: space-around;
     transform: translateY(-50%);
@@ -677,10 +675,9 @@ body {
 
 .time-nav {
     position: absolute;
-    top: 23px;
-    width: 150px;
-    height: 30px;
-    left: 23px;
+    top: 18px;
+    height: fit-content;
+    align-items: center;
     z-index: 90;
     display: flex;
     justify-content: space-between;
@@ -688,5 +685,5 @@ body {
 
 .time-nav span {
     color: #fff;
-    font-size: 11px;
+    font-size: 14px;
 }

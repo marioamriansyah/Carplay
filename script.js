@@ -21,7 +21,7 @@ if (openMenu) {
 // function OpenAppScreen() {
 //     const lockScreen = document.querySelector('.lock-screen');
 //     const appMenu = document.querySelector('.application-menu');
-    
+
 //     if (lockScreen && appMenu) {
 //         lockScreen.classList.replace('active', 'animate-lock-screen');
 //         appMenu.classList.add('active');
@@ -53,7 +53,7 @@ function CloseIframe() {
 function CloseApp() {
     const lockScreen = document.querySelector('.lock-screen');
     const appMenu = document.querySelector('.application-menu');
-    
+
     if (lockScreen && appMenu) {
         lockScreen.classList.remove('animate-lock-screen');
         lockScreen.classList.add('active');
@@ -66,26 +66,24 @@ function CloseApp() {
 function closeAllIframes() {
     const iframeContainer = document.getElementById('iframe-container');
     const iframe = document.getElementById('website-iframe');
-    
+
     if (iframeContainer && iframe) {
         // Add closing animation
         iframeContainer.style.opacity = '0';
-        iframeContainer.style.transform = 'scale(0.8)';
-        
+
         setTimeout(() => {
             // Completely reset iframe
             iframe.src = 'about:blank'; // More thorough reset
             iframe.style.zoom = '100%'; // Reset zoom level
             iframe.style.marginTop = '20px'; // Reset margin
-            
+
             // Hide container
             iframeContainer.style.display = 'none';
             iframeContainer.style.opacity = '1';
-            iframeContainer.style.transform = 'scale(1)';
-            
+
             // Show all hidden elements again
             showElementsWhenIframeClose();
-            
+
             // Clear any potential iframe history
             try {
                 iframe.contentWindow.location.replace('about:blank');
@@ -93,7 +91,7 @@ function closeAllIframes() {
                 // Cross-origin restrictions may prevent this
                 console.log('Cross-origin iframe, using src reset only');
             }
-            
+
             console.log('All iframes closed and completely reset');
         }, 200);
     }
@@ -103,7 +101,7 @@ function closeAllIframes() {
 function forceCloseAllIframes() {
     const iframeContainer = document.getElementById('iframe-container');
     const iframe = document.getElementById('website-iframe');
-    
+
     if (iframeContainer && iframe) {
         // Immediate close without animation
         iframe.src = 'about:blank';
@@ -111,8 +109,7 @@ function forceCloseAllIframes() {
         iframe.style.marginTop = '20px';
         iframeContainer.style.display = 'none';
         iframeContainer.style.opacity = '1';
-        iframeContainer.style.transform = 'scale(1)';
-        
+
         console.log('All iframes force closed');
     }
 }
@@ -141,7 +138,7 @@ function forceCloseAllIframes() {
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('iframe-container');
     const iframe = document.getElementById('website-iframe');
-    
+
     console.log('DOM loaded - checking elements:');
     console.log('container:', container);
     console.log('iframe:', iframe);
@@ -168,6 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Elements shown again:', elementsToShow.length);
     }
 
+    // tombol buka, misal tombol dengan id "openVibebook"
+    document.getElementById('openVibebook').addEventListener('click', () => {
+        iframe.src = 'https://vb.lossantos.cloud/';
+        container.style.display = 'block';
+        iframe.style.zoom = '60%';
+    });
+
 
     // tombol buka, misal tombol dengan id "openWeather"
     document.getElementById('openWeather').addEventListener('click', () => {
@@ -186,11 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('openRadio').addEventListener('click', () => {
         iframe.src = 'https://powerhitz.com/1Power';
         container.style.display = 'block';
+        iframe.style.zoom = '50%';
     });
 
     // tombol buka, misal tombol dengan id "openSafari"
     document.getElementById('openSafari').addEventListener('click', () => {
-        iframe.src = 'www.google.com';
+        iframe.src = 'https://yandex.com/';
         container.style.display = 'block';
     });
 
@@ -219,31 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         iframe.style.zoom = '70%';
     });
 
-
-    // tombol close dan minimize
-    const closeButtons = document.querySelectorAll('.close-iframe');
-    console.log('Found close buttons:', closeButtons.length);
-    closeButtons.forEach((btn, index) => {
-        console.log(`Adding event listener to close button ${index}:`, btn);
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Close button clicked!');
-            closeAllIframes();
-        });
-    });
-
-    // Note: Close button functionality is handled in the CloseAppScreen function above
-    
-    // Add keyboard shortcut to close all iframes (Escape key)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const iframeContainer = document.getElementById('iframe-container');
-            if (iframeContainer && iframeContainer.style.display === 'block') {
-                closeAllIframes();
-            }
-        }
-    });
 });
 
 function updateTime() {
