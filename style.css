@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     /* scroll-behavior: smooth; */
-    transition: .8s;
+    /* transition: .8s; */
     user-select: none;
     user-drag: none;
 }
@@ -13,7 +13,8 @@
 } */
 
 body {
-    display: flex;
+    margin: 0;
+    height: 100vh;
     transition: .8s;
     overflow: hidden;
     justify-content: center;
@@ -22,6 +23,7 @@ body {
     font-family: 'SF Pro Display', sans-serif;
     font-weight: 400;
     letter-spacing: 0.4px;
+    /* zoom: 120%; */
 }
 
 .iphone-frame {
@@ -269,31 +271,27 @@ body {
 
 
 .bottom-navigation {
+    cursor: grab;
     position: absolute;
     display: flex;
     flex-direction: column;
     left: 6px;
-    top: 50%;
+    top: 5px;
     width: 40px;
     height: 210px;
     padding: 0.5em;
     align-items: center;
     justify-content: space-around;
-    transform: translateY(-50%);
-    box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
-        inset -1px -1px 1px 0px rgba(255, 255, 255, 0.616);
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.322);
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4px);
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
-    transform-origin: center;
-    filter: url(#glass-distortion);
-    overflow: hidden;
-    isolation: isolate;
-    z-index: 999;
+    color: #fff;
+    z-index: 10;
 }
 
+.bottom-navigation:active {
+    cursor: grabbing;
+}
 
 .bottom-navigation-apps {
     position: absolute;
@@ -613,7 +611,7 @@ body {
 }
 
 #website-iframe::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 

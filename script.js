@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // tombol buka, misal tombol dengan id "openSafari"
     document.getElementById('openSafari').addEventListener('click', () => {
-        openIframe('https://yandex.com/');
+        openIframe('https://google.com/');
     });
 
     // tombol buka, misal tombol dengan id "openApplemusic"
@@ -200,8 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // tombol buka, misal tombol dengan class "dinoGame"
-    document.querySelector('.dinoGame').addEventListener('click', () => {
+    document.getElementById('openDinogame').addEventListener('click', () => {
         openIframe('https://precious-cassata-fda6b3.netlify.app/');
+        iframe.style.zoom = '60%';
     });
 
 
@@ -278,3 +279,38 @@ function closeIframe() {
 iframe.addEventListener("load", () => {
     loader.style.display = "none";          // sembunyikan spinner
 });
+
+
+// Make the DIV element draggable:
+const iphone = document.querySelector(".iphone-frame");
+const nav = document.querySelector(".bottom-navigation");
+
+let shiftX = 0, shiftY = 0;
+
+nav.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+
+    // ambil posisi awal elemen
+    const rect = iphone.getBoundingClientRect();
+
+    // hitung selisih antara cursor dan posisi elemen
+    shiftX = e.clientX - rect.left;
+    shiftY = e.clientY - rect.top;
+
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
+});
+
+function onMove(e) {
+    // elemen tetap mengikuti titik awal klik, bukan geser ke kanan bawah
+    iphone.style.left = (e.clientX - shiftX) + "px";
+    iphone.style.top = (e.clientY - shiftY) + "px";
+}
+
+function onUp() {
+    document.removeEventListener("mousemove", onMove);
+    document.removeEventListener("mouseup", onUp);
+}
+
+// cegah efek drag default browser
+nav.ondragstart = () => false;
